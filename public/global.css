@@ -19,6 +19,7 @@
   --size-unit-2: calc(var(--size-unit-1) * 2);
   --size-unit-3: calc(var(--size-unit-1) * 3);
   --size-unit-4: calc(var(--size-unit-1) * 4);
+  --size-unit-8: calc(var(--size-unit-1) * 8);
 
   --breakpoint-tablet: 768px;
 }

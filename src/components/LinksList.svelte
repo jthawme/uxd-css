@@ -1,4 +1,6 @@
 <script>
+  import { tooltip } from "./Tooltip.svelte";
+
   export let title = "";
   export let links = [];
 </script>
@@ -42,6 +44,12 @@
       a {
         span {
           display: inline;
+
+          &:before {
+            content: "\2014";
+            margin-right: 0.5ch;
+            margin-left: 0.25ch;
+          }
         }
       }
     }
@@ -53,10 +61,10 @@
 <ul>
   {#each links as link}
     <li>
-      <a href={link.to} target="_blank">
+      <a href={link.to} target="_blank" use:tooltip={link.description}>
         {link.label}
         {#if link.sublabel}
-          <span>– {link.sublabel}</span>
+          <span>{link.sublabel}</span>
         {/if}
       </a>
     </li>

@@ -1,33 +1,44 @@
 <script>
   import Explorer from "./components/Explorer.svelte";
   import LinksList from "./components/LinksList.svelte";
+  import Tooltip from "./components/Tooltip.svelte";
 
   const servicesLinks = [
-    { to: "https://www.figma.com/", label: "Figma", sublabel: "Design" },
+    {
+      to: "https://www.figma.com/",
+      label: "Figma",
+      sublabel: "Design",
+      description: "Modern design software"
+    },
     {
       to: "https://codesandbox.io/",
       label: "Code Sandbox",
-      sublabel: "Development"
+      sublabel: "Development",
+      description: "An online development IDE"
     },
     {
       to: "https://code.visualstudio.com/",
       label: "Visual Studio Code",
-      sublabel: "Development"
+      sublabel: "Development",
+      description: "Industry level code editor"
     },
     {
       to: "https://www.netlify.com/",
       label: "Netlify",
-      sublabel: "Hosting"
+      sublabel: "Hosting",
+      description: "Excellent 'static hosting' platform"
     },
     {
       to: "https://pages.github.com/",
       label: "Github Pages",
-      sublabel: "Hosting"
+      sublabel: "Hosting",
+      description: "Deploy sites through github, which promotes good standards"
     },
     {
       to: "https://glitch.com/",
       label: "Glitch",
-      sublabel: "Code"
+      sublabel: "Code",
+      description: "Fun take on a code site, a lot of interesting work"
     }
   ];
 
@@ -42,29 +53,40 @@
 
   const furtherLinks = [
     {
-      to: "https://www.jthaw.me/",
+      to: "https://css-tricks.com/",
       label: "CSS Tricks",
-      sublabel: "Everything web"
+      sublabel: "Everything web",
+      description: "Find articles about everything to do with the web"
     },
     {
-      to: "https://jthaw.me",
+      to: "https://developer.mozilla.org/",
       label: "MDN",
-      sublabel: "Web Documentation"
+      sublabel: "Web Documentation",
+      description: "The authority on web documentation"
     },
     {
-      to: "https://jthaw.me",
+      to: "https://ffconf.org/",
       label: "FFConf",
-      sublabel: "Creative Web Conference"
+      sublabel: "Creative Web Conference",
+      description: "A great conference in Brighton"
     },
     {
-      to: "https://jthaw.me",
+      to: "https://www.codecademy.com/",
       label: "Codeacademy",
-      sublabel: "Online Course"
+      sublabel: "Online Course",
+      description: "Some free well made online courses"
     },
     {
-      to: "https://jthaw.me",
+      to: "https://www.womenwhocode.com/",
+      label: "Women Who Code",
+      sublabel: "Meetup / Organisation",
+      description: "An organisation that helps empower women in tech"
+    },
+    {
+      to: "https://lab.arts.ac.uk/",
       label: "Lab.arts",
-      sublabel: "Creative Lab"
+      sublabel: "Creative Lab",
+      description: "Coding help in your very own university"
     }
   ];
 </script>
@@ -77,23 +99,49 @@
   .links-group {
     display: grid;
 
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-column-gap: var(--size-unit-2);
 
     padding-top: var(--size-unit-4);
     margin-bottom: var(--size-unit-4);
 
     div {
-      grid-column-end: span 3;
+      grid-column-end: span 4;
 
-      &:last-of-type {
-        grid-column-start: 10;
+      margin-bottom: var(--size-unit-8);
+    }
+
+    @media screen and (min-width: 560px) {
+      div {
+        grid-column-end: span 2;
+      }
+    }
+
+    @media screen and (min-width: 800px) {
+      grid-template-columns: repeat(12, 1fr);
+
+      div {
+        grid-column-end: span 4;
+
+        &:last-of-type {
+          grid-column-start: 9;
+        }
+      }
+    }
+
+    @media screen and (min-width: 1200px) {
+      div {
+        grid-column-end: span 3;
+
+        &:last-of-type {
+          grid-column-start: 10;
+        }
       }
     }
   }
 
   .bottom {
-    padding-top: var(--size-unit-4);
+    padding-top: calc(var(--size-unit-8) * 2);
   }
 
   h2 {
@@ -101,6 +149,8 @@
     padding-right: var(--size-unit-2);
   }
 </style>
+
+<Tooltip />
 
 <main>
   <section class="top">

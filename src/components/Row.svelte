@@ -2,7 +2,7 @@
   .row {
     display: grid;
 
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-column-gap: var(--size-unit-2);
 
     background-color: transparent;
@@ -21,10 +21,24 @@
 
     .column {
       grid-column-end: span 2;
+      margin-bottom: var(--size-unit-2);
     }
 
     .sub-column {
-      grid-column-end: span 1;
+      grid-column-end: span 2;
+      margin-bottom: var(--size-unit-2);
+    }
+
+    @media screen and (min-width: 560px) {
+      grid-template-columns: repeat(6, 1fr);
+
+      .column {
+        grid-column-end: span 2;
+      }
+
+      .sub-column {
+        grid-column-end: span 1;
+      }
     }
   }
 </style>

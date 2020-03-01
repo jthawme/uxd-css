@@ -123,28 +123,31 @@
       backgroundArr.push(`background-image: url(${backgroundImage})`);
     }
   }
+
+  function onCodeFocus() {
+    this.select();
+  }
 </script>
 
 <style lang="scss">
   section {
     display: flex;
 
-    align-items: flex-start;
+    align-items: stretch;
     border-top: 1px solid var(--color-dark-grey);
 
-    .input-list,
-    .output {
-      flex-basis: 50%;
-    }
+    flex-direction: column-reverse;
 
     .input-list {
       border: 1px solid var(--color-dark-grey);
-      border-top: 0;
+
+      @media screen and (min-width: 768px) {
+        border-top: 0;
+      }
     }
 
     .output {
       position: sticky;
-
       display: flex;
 
       align-items: center;
@@ -152,7 +155,33 @@
 
       top: 0;
 
-      min-height: 100vh;
+      padding: var(--size-unit-4) 0;
+    }
+
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+      align-items: flex-start;
+
+      .input-list {
+        flex-basis: 60%;
+      }
+      .output {
+        flex-basis: 40%;
+      }
+      .output {
+        height: 100vh;
+
+        padding: 0;
+
+        overflow: hidden;
+      }
+    }
+
+    @media screen and (min-width: 950px) {
+      .input-list,
+      .output {
+        flex-basis: 50%;
+      }
     }
   }
 
@@ -166,6 +195,63 @@
     border-radius: 0;
 
     outline: none;
+
+    background-color: var(--color-active);
+    color: var(--color-dark-grey);
+
+    @media screen and (min-width: 768px) {
+      background-color: transparent;
+
+      &:focus {
+        color: var(--color-text);
+      }
+    }
+  }
+
+  textarea {
+    position: absolute;
+
+    display: none;
+
+    z-index: 5;
+
+    bottom: 0;
+    height: 150px;
+    width: 100%;
+    left: 0;
+
+    padding: var(--size-unit-2);
+    border: 1px solid var(--color-dark-grey);
+    border-left: 0;
+    border-right: 0;
+
+    outline: none;
+
+    resize: none;
+
+    transform: translate3d(0, 50%, 0);
+    opacity: 0.5;
+
+    text-align: center;
+
+    &:hover,
+    &:focus {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+
+    &:focus {
+      background-color: var(--color-active);
+
+      &::selection {
+        background-color: var(--color-dark-grey);
+        color: var(--color-white);
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      display: block;
+    }
   }
 </style>
 
@@ -317,5 +403,14 @@
       foregroundString={foregroundArr.join('; ')}
       backgroundString={backgroundArr.join('; ')}
       animate={backgroundAnimate} />
+
+    {#if styleArr.length}
+      <textarea
+        readonly
+        on:focus={onCodeFocus}
+        disabled={styleArr.length === 0}>
+        {styleArr.join(';\n')};
+      </textarea>
+    {/if}
   </div>
 </section>
