@@ -24,6 +24,11 @@
       color: var(--color-text);
       text-decoration: none;
 
+      &:hover,
+      &:active {
+        opacity: 0.5;
+      }
+
       span {
         display: block;
 

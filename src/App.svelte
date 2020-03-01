@@ -20,11 +20,6 @@
       sublabel: "Hosting"
     },
     {
-      to: "https://www.netlify.com/",
-      label: "Netlify",
-      sublabel: "Hosting"
-    },
-    {
       to: "https://pages.github.com/",
       label: "Github Pages",
       sublabel: "Hosting"
@@ -85,7 +80,8 @@
     grid-template-columns: repeat(12, 1fr);
     grid-column-gap: var(--size-unit-2);
 
-    padding-top: var(--size-unit-2);
+    padding-top: var(--size-unit-4);
+    margin-bottom: var(--size-unit-4);
 
     div {
       grid-column-end: span 3;
@@ -95,12 +91,20 @@
       }
     }
   }
+
+  .bottom {
+    padding-top: var(--size-unit-4);
+  }
+
+  h2 {
+    padding-left: var(--size-unit-2);
+    padding-right: var(--size-unit-2);
+  }
 </style>
 
 <main>
   <section class="top">
     <h1>UXD – Modern CSS</h1>
-
     <div class="links-group">
       <div>
         <LinksList title="Services" links={servicesLinks} />
@@ -114,5 +118,9 @@
       </div>
     </div>
   </section>
-  <Explorer />
+
+  <section class="bottom">
+    <h2>CSS Explorer</h2>
+    <Explorer />
+  </section>
 </main>
