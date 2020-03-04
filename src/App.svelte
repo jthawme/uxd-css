@@ -43,11 +43,17 @@
   ];
 
   const usefulLinks = [
-    { to: "https://www.jthaw.me/", label: "Slides" },
+    { to: "https://docs.google.com/presentation/d/19q6te9XQ-Moiid5hwJBbRYWJM7J-jfRarWd5rpdgbg0/edit?usp=sharing", label: "Slides" },
     {
-      to: "https://jthaw.me",
+      to: "https://codesandbox.io/s/uxd-mobile-base-n47my",
       label: "Starting Code",
       sublabel: "Designing Layouts"
+    },
+    {
+      to: "https://www.figma.com/education/",
+      label: "Figma for Education",
+      sublabel: "Free for students",
+      description: "Sign up for full features for free"
     }
   ];
 
