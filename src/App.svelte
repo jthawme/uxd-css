@@ -43,7 +43,11 @@
   ];
 
   const usefulLinks = [
-    { to: "https://docs.google.com/presentation/d/19q6te9XQ-Moiid5hwJBbRYWJM7J-jfRarWd5rpdgbg0/edit?usp=sharing", label: "Slides" },
+    {
+      to:
+        "https://docs.google.com/presentation/d/19q6te9XQ-Moiid5hwJBbRYWJM7J-jfRarWd5rpdgbg0/edit?usp=sharing",
+      label: "Slides"
+    },
     {
       to: "https://codesandbox.io/s/uxd-mobile-base-n47my",
       label: "Starting Code",
@@ -54,10 +58,22 @@
       label: "Figma for Education",
       sublabel: "Free for students",
       description: "Sign up for full features for free"
+    },
+    {
+      to: "https://github.com/jthawme/uxd-css",
+      label: "Code for this site",
+      sublabel: "View code",
+      description: "View all the code it took to make this site"
     }
   ];
 
   const furtherLinks = [
+    {
+      to: "https://v-fonts.com/",
+      label: "V-Fonts",
+      sublable: "Variable fonts",
+      description: "An explorer of current variable fonts out there"
+    },
     {
       to: "https://css-tricks.com/",
       label: "CSS Tricks",
@@ -175,7 +191,7 @@
     </div>
   </section>
 
-  <section class="bottom">
+  <section id="explorer" class="bottom">
     <h2>CSS Explorer</h2>
     <Explorer />
   </section>
