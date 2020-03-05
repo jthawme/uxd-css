@@ -71,7 +71,7 @@
     {
       to: "https://v-fonts.com/",
       label: "V-Fonts",
-      sublable: "Variable fonts",
+      sublabel: "Variable fonts",
       description: "An explorer of current variable fonts out there"
     },
     {
